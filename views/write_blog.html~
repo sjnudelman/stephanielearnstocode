@@ -1,0 +1,15 @@
+
+{% extends "base_template.html" %}
+
+{% block main_content %}
+
+<p> <h3> 
+<form name="blog_post" action="/write_blog" method="post">
+Post Title: <input type="text" name="title" id="title"><br>
+Post Text:  <textarea name="text" id="text" rows="20" cols="50"></textarea> <br>
+
+<input type="submit" value="Submit">
+
+</form> </h3> <p>
+
+{% endblock %}

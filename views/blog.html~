@@ -1,0 +1,14 @@
+
+{% extends "base_template.html" %}
+
+{% block main_content %}
+
+{% for blog in blogs %}
+
+<h2> title = {{blog.title}} </h2> 
+
+<p>text = {{blog.text}}</p>
+
+{% endfor %}
+
+{% endblock %}

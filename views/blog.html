@@ -1,1 +1,14 @@
-<p> <h3> This is the blog. </h3> <p>
+
+{% extends "base_template.html" %}
+
+{% block main_content %}
+
+{% for blog in blogs %}
+
+<h2> {{blog.title}} </h2> 
+
+<p> {{blog.text}}</p>
+
+{% endfor %}
+
+{% endblock %}

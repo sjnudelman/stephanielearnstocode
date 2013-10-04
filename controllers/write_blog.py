@@ -2,6 +2,7 @@ import jinja2
 import os
 import webapp2
 from google.appengine.ext.webapp import template
+from models import blog
 
 directory = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'views'))
 jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(directory))
@@ -14,3 +15,15 @@ class WriteBlog(webapp2.RequestHandler):
 			"message": self.request.get("message"),
 		}
 		self.response.out.write(HTML_TEMPLATE.render(data))
+	def post(self):
+		title = self.request.get("title")
+		text = self.request.get("text")
+		
+		b = blog.Blog(title = title, text = text)
+		b.put()
+		
+		self.redirect("/blog")
+
+		# self.response.write(title)
+		# self.response.write(text)
+		
